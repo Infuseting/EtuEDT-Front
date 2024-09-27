@@ -1,0 +1,519 @@
+/* VAR */
+html.black{
+    --main-color: #021627;
+    --main-hover-color: #1b2d3d;
+    --main-active-color: #021423;
+    --secondary-color: #F2EFEA;
+    --secondary-hover-color: #f3f1ec;
+    --secondary-active-color: #dad7d3;
+    --header-height:calc(20px + 2em);
+}
+html{
+    --secondary-color: #021627;
+    --secondary-hover-color: #1b2d3d;
+    --secondary-active-color: #021423;
+    --main-color: #F2EFEA;
+    --main-hover-color: #f3f1ec;
+    --main-active-color: #dad7d3;
+    --header-height:calc(20px + 2em);
+    transition: background-color 1s ease;
+}
+/* GENERAL */
+head, html, body, h1, h2, h3, h4, h5, span,i,a{
+    padding: 0;
+    top: 0; left: 0;
+    margin:0;
+    font-family: 'Roboto', sans-serif;
+    color: var(--secondary-color);
+}
+
+/* HEADER */
+body > header{
+    position: fixed;
+    background-color: var(--main-color);
+    height: var(--header-height);
+    width: 100%;
+    color: var(--secondary-color);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+body > header > h1{
+    text-align: left;
+    vertical-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    
+
+}
+body > header a {
+    text-decoration: none;
+    text-align: end;
+    vertical-align: center;
+
+}
+body > header i{
+    position: inherit;
+    font-size : var(--header-height) ;
+}
+body > main a > i{
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+}
+body > main a > i:hover{
+    transform: scale(1.3);
+}
+body > a{
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+/* MAIN */
+body > main{
+    padding-top: 0;
+    position: fixed;
+    margin-top: var(--header-height);
+    background-color: var(--secondary-color);    
+    height: calc(100% - 2*var(--header-height));
+    width: 100%;
+    overflow: hidden;
+}
+/* AGENDA SELECTOR */
+body > main > .agenda-selector{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    overflow-y: scroll;
+    padding-bottom: 2em;
+}
+body > main > .agenda-selector > p {
+    color : var(--main-color);
+}
+body > main > .agenda-selector > .search-bar {
+    width: auto;
+    padding: 0 8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1em;
+    border-bottom: 2px solid var(--main-color);
+}
+body > main > .agenda-selector > .search-bar > input{
+    width: 100%;
+    
+    color: var(--secondary-color);
+    height: 2em;
+    margin: auto;
+    padding: 0.50em 4em;
+    background-color: var(--main-color);
+    border: 4px solid var(--active-main-color);
+    border-radius: 1em;
+}
+body > main > .agenda-selector > .search-bar > input:focus,
+body > main > .agenda-selector > .search-bar > input:active,
+body > main > .agenda-selector > .search-bar > input:hover,
+body > main > .agenda-selector > .search-bar > input:focus-within{
+    background-color: var(--main-active-color);
+    border: 0px solid var(--main-hover-color);
+}
+body > main > .agenda-selector > .fav-div{
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding-top: 1em;
+}
+body > main > .agenda-selector > .fav-div > .dropdown-element{
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 20em;
+    height: 4em;
+    cursor: pointer;
+    background-color: var(--main-color);
+}
+body > main > .agenda-selector > .fav-div > .dropdown-element > a{
+    text-decoration: none;
+    color: var(--secondary-color);
+
+}
+
+body > main > .agenda-selector > .content-div {
+    padding-top: 1em;
+}
+body > main > .agenda-selector > .content-div > .dropdown-menu{
+    padding-top: 5px;
+    cursor: pointer;
+    
+}
+body > main > .agenda-selector > .content-div > .dropdown-menu > ul{
+    display: none;
+}
+body > main > .agenda-selector > .content-div > .dropdown-menu.active > ul{
+    display: flex;
+}
+body > main > .agenda-selector > .content-div > .dropdown-menu > a > i{
+    transition: transform 0.5s ease;
+}
+body > main > .agenda-selector > .content-div > .dropdown-menu.active > a > i{
+    transform: rotate(90deg);
+}
+body > main > .agenda-selector > .content-div > .dropdown-menu > a{
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+    display: flex;
+    background-color: var(--main-color);
+    align-items: center;
+    justify-content: center;
+    width: 20em;
+    height: 4em;
+}
+body > main > .agenda-selector > .content-div > .dropdown-menu.active ul{
+    display: flex;
+    z-index: 1000;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x : hidden;
+    max-height: 13em;
+    width: auto;
+    margin-top:0;
+}
+body > main > .agenda-selector > .content-div > .dropdown-menu.active .dropdown-element{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 2em;
+    justify-content: center;
+    width: auto;
+    text-align: center;
+    width: 12em;
+    max-height: 4em;
+    border: 1px solid var(--secondary-color);
+    background-color: var(--main-color);
+}
+body > main > .agenda-selector > .content-div > .dropdown-menu.active .dropdown-element a{
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+/* AGENDA */
+
+body > main > .agenda h1,
+body > main > .agenda h2,
+body > main > .agenda h3,
+body > main > .agenda h4,
+body > main > .agenda h5,
+body > main > .agenda span,
+body > main > .agenda i,
+body > main > .agenda p{
+    color: var(--main-color);
+}
+body > main > .agenda{
+    width: 100%;
+    height: calc(100%);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding-bottom: 2em;
+    overflow-x: scroll;
+
+}
+body > main > .agenda > .edt-week{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+body > main > .agenda > .edt-week > .edt-day{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    flex: content;
+    min-width: 20%;
+    flex: auto;
+    padding: 0.5em;
+    border: 1px solid var(--main-color);
+    background-color: var(--secondary-color);
+    
+}
+body > main > .agenda > .edt-week > .edt-day > .edt-header{
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--main-color);
+    color: var(--secondary-color);
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+body > main > .agenda > .edt-week > .edt-day > .edt-header > h2{
+    color: var(--secondary-color);
+    line-height: normal;
+    margin: 0;
+}
+body > main > .agenda > .edt-week > .edt-day > .edt-header > p{
+    color: var(--secondary-color);
+    line-height: normal;
+    margin: 0;
+}
+body > main > .agenda > .edt-week > .edt-day > .edt-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+body > main > .agenda > .edt-week > .edt-day > .edt-content > .edt-event{
+    width: calc(100% - 4px);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    overflow: hidden;
+    position: absolute;
+    border: 2px solid black
+}
+body > main > .agenda > .edt-week > .edt-day > .edt-content > .edt-event:hover{
+    min-height: 150px;
+    cursor:pointer;
+    z-index: 1000;
+}
+body > main > .agenda > .edt-week > .edt-day > .edt-content > .edt-event > .edt-event-content{
+    text-align: center;
+    
+}
+
+body > main > .agenda > .edt-week > .edt-day > .edt-content > .edt-event > .edt-event-content > h3{
+    margin-top: 6px;
+    line-height: 1em;
+}
+body > main > .agenda > .edt-week > .edt-day > .edt-content > .edt-event > .edt-event-content > p{
+    margin: 0;
+    line-height: 1em;
+}
+/* FOOTER */
+body > footer{
+    position: fixed;
+    background-color: var(--main-color);
+    height: var(--header-height);
+    width: 100%;
+    color: var(--secondary-color);
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body > footer i{
+    font-size: var(--header-height);
+}
+
+/* COLORS */
+body .agenda-selector .yellow{
+    color: #FFDC2E !important;
+}
+body .agenda .yellow {
+    background-color: #FFD700 !important; /* gold */
+    color: #000000 !important; /* black */
+}
+
+body .agenda .red {
+    background-color: #FF6347 !important; /* tomato */
+    color: #FFFFFF !important; /* white */
+}
+
+body .agenda .green {
+    background-color: #32CD32 !important; /* limegreen */
+    color: #FFFFFF !important; /* white */
+}
+
+body .agenda .blue {
+    background-color: #1E90FF !important; /* dodgerblue */
+    color: #FFFFFF !important; /* white */
+}
+
+body .agenda .orange {
+    background-color: #FFA500 !important; /* orange */
+    color: #000000 !important; /* black */
+}
+
+body .agenda .purple {
+    background-color: #9370DB !important; /* mediumpurple */
+    color: #FFFFFF !important; /* white */
+}
+
+body .agenda .pink {
+    background-color: #FF69B4 !important; /* hotpink */
+    color: #FFFFFF !important; /* white */
+}
+
+body .agenda .brown {
+    background-color: #A52A2A !important; /* brown */
+    color: #FFFFFF !important; /* white */
+}
+
+body .agenda .gray {
+    background-color: #A9A9A9 !important; /* darkgray */
+    color: #000000 !important; /* black */
+}
+
+body .agenda .cyan {
+    background-color: #00CED1 !important; /* darkturquoise */
+    color: #000000 !important; /* black */
+}
+
+body .agenda .magenta {
+    background-color: #FF00FF !important; /* magenta */
+    color: #FFFFFF !important; /* white */
+}
+
+body .agenda .maroon {
+    background-color: #800000 !important; /* maroon */
+    color: #FFFFFF !important; /* white */
+}
+
+body .agenda .navy {
+    background-color: #000080 !important; /* navy */
+    color: #FFFFFF !important; /* white */
+}
+
+body .agenda .olive {
+    background-color: #808000 !important; /* olive */
+    color: #FFFFFF !important; /* white */
+}
+
+body .agenda .teal {
+    background-color: #008080 !important; /* teal */
+    color: #FFFFFF !important; /* white */
+}
+
+body .agenda .silver {
+    background-color: #C0C0C0 !important; /* silver */
+    color: #000000 !important; 
+}
+
+
+
+/*HIDDEN*/
+.dropdown-element.hidden{
+    display: none;
+}
+.hidden{
+    display: none !important;
+}
+
+/*MEDIA UPDATE*/
+@media screen and (max-width: 1800px) {
+    body > main > .agenda > .edt-week > .edt-day {
+        min-width: 25%;
+    }
+}
+
+@media screen and (max-width: 1467px) {
+    body > main > .agenda > .edt-week > .edt-day {
+        min-width: 33%;
+    }
+}
+
+@media screen and (max-width: 1134px) {
+    body > main > .agenda > .edt-week > .edt-day {
+        min-width: 50%;
+    }
+    
+    
+}
+
+@media screen and (max-width: 1000px) {
+    body > main > .agenda > .edt-week > .edt-day {
+        min-width: 100%;
+    }
+}
+@media (max-width: 1280px) {
+    html {
+        --header-height:calc(20px + 4em);
+    }
+    body > header h1{
+        font-size: 4em;
+    }
+    body > main > .agenda-selector p{
+        font-size: 2em;
+        text-align: center;
+    }
+    body > main > .agenda-selector .search-bar{
+        padding: 0 2em;
+        padding-bottom: 1em;
+    }
+    body > main > .agenda-selector .search-bar input{
+        width: 100%;
+        
+    }
+    body > main > .agenda-selector .search-bar input[type="text"]{
+        font-size: 2em;
+    }
+    body > main > .agenda-selector .fav-div > .dropdown-element{
+        width: 40em;
+        height: 9em;
+    }
+    body > main > .agenda-selector .fav-div > .dropdown-element > a{
+        font-size: 2em;
+    }
+    body > main > .agenda-selector .dropdown-menu{
+        width: 40em;
+
+    }
+    body > main > .agenda-selector > .content-div{
+        width: 40em;
+    }
+    body > main > .agenda-selector > .content-div > .dropdown-menu > a {
+        width: 25em;
+        max-width: 20em;
+        height: 4em;
+        font-size: 2em;
+    }
+    
+    body > main > .agenda-selector > .content-div > .dropdown-menu.active .dropdown-element{
+        width: auto;
+        height: 6em;
+    }
+    body > main > .agenda-selector > .content-div > .dropdown-menu.active .dropdown-element a{
+        font-size: 2em;
+        width: 20em;
+    }
+    body > main > .agenda{
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        scrollbar-width: none;  /* Firefox */
+    }
+    body > main > .agenda::-webkit-scrollbar { 
+        display: none;  /* Safari and Chrome */
+
+    }
+    body > main > .agenda > .edt-week > .edt-day > .edt-header > h2{
+        font-size: 4em;
+    }
+    body > main > .agenda > .edt-week > .edt-day > .edt-header > p{
+        font-size: 3em;
+    }
+    body > main > .agenda > .edt-week > .edt-day > .edt-content h3,
+    body > main > .agenda > .edt-week > .edt-day > .edt-content p {
+        font-size: 2.5em;
+    }
+    body > main > .agenda > .edt-week > .edt-day > .edt-content > .edt-event:hover{
+        min-height: 300px;
+    }
+    
+}
