@@ -1,6 +1,20 @@
 {
     "refreshMinutes": 5,
     "prof": [
+        {
+        "numUniv": 1,
+        "descTT": "Athenais VAGINAY",
+        "adeUniv": "https://ade.unicaen.fr/jsp/custom/modules/plannings/anonymous_cal.jsp",
+        "adeResources": 1177,
+        "adeProjectId": 1
+        },
+        {
+            "numUniv": 1,
+            "descTT": "Jean-Francois Anne",
+            "adeUniv": "https://ade.unicaen.fr/jsp/custom/modules/plannings/anonymous_cal.jsp",
         
+            "adeResources": 1178,
+            "adeProjectId": 1
+        }
     ]
 }

@@ -16,7 +16,7 @@
             $json = file_get_contents("assets/json/salle.json");
             $data = json_decode($json, true);
             foreach ($data['salle'] as $salle) {
-                $name = htmlspecialchars($salle['nameSalle']);
+                $name = htmlspecialchars($salle['descTT']);
                 $adeProjectID = htmlspecialchars($salle['adeProjectId']);
                 $adeResources = htmlspecialchars($salle['adeResources']);
                 $key = $adeProjectID . '-' . $adeResources;
@@ -33,7 +33,7 @@
             $json = file_get_contents("assets/json/prof.json");
             $data = json_decode($json, true);
             foreach ($data['prof'] as $prof) {
-                $name = $prof['nameProf'];
+                $name = $prof['descTT'];
                 $adeProjectID = $prof['adeProjectId'];
                 $adeResources = $prof['adeResources'];
                 $key = $prof['adeProjectId'] . '-' . $prof['adeResources'];
